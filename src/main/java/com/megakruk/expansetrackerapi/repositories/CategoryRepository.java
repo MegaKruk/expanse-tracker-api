@@ -19,4 +19,5 @@ public interface CategoryRepository {
         throws EtBadRequestException;
 
     void removeById(Integer userId, Integer categoryId);
+
 }
