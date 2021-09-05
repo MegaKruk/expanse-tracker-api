@@ -60,6 +60,6 @@ public class TransactionServiceImpl implements TransactionService {
             Integer categoryId,
             Integer transactionId
     ) throws EtResourceNotFoundException {
-
+        transactionRepository.removeById(userId, categoryId, transactionId);
     }
 }

@@ -33,6 +33,10 @@ public class TransactionRepositoryImpl implements TransactionRepository {
             "UPDATE ET_TRANSACTIONS SET AMOUNT = ?, NOTE = ?, TRANSACTION_DATE = ? WHERE " +
                     "USER_ID = ? AND CATEGORY_ID = ? AND TRANSACTION_ID = ?";
 
+    public static final String SQL_DELETE =
+            "DELETE FROM ET_TRANSACTIONS WHERE USER_ID = ? AND CATEGORY_ID = ? AND " +
+                    "TRANSACTION_ID = ?";
+
 
     private RowMapper<Transaction> transactionRowMapper = (((rs, rowNum) -> {
         return new Transaction(
@@ -127,6 +131,8 @@ public class TransactionRepositoryImpl implements TransactionRepository {
             Integer categoryId,
             Integer transactionId
     ) throws EtResourceNotFoundException {
-
+        int count = jdbcTemplate.update(SQL_DELETE, userId, categoryId, transactionId);
+        if(count == 0)
+            throw new EtResourceNotFoundException("Transaction not found");
     }
 }
