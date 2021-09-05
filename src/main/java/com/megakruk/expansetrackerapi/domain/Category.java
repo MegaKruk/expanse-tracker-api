@@ -1,5 +1,12 @@
 package com.megakruk.expansetrackerapi.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Getter
+@Setter
 public class Category {
 
     private Integer categoryId;
@@ -8,57 +15,4 @@ public class Category {
     private String description;
     private Double totalExpanse;
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getTotalExpanse() {
-        return totalExpanse;
-    }
-
-    public void setTotalExpanse(Double totalExpanse) {
-        this.totalExpanse = totalExpanse;
-    }
-
-    public Category(
-            Integer categoryId,
-            Integer userId,
-            String title,
-            String description,
-            Double totalExpanse
-    ) {
-        this.categoryId = categoryId;
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
-        this.totalExpanse = totalExpanse;
-    }
 }
